@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+   <parent>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-parent</artifactId>
+      <version>2.4.4</version>
+      <relativePath />
+      <!-- lookup parent from repository -->
+   </parent>
+   <groupId>com.app</groupId>
+   <artifactId>apm-app</artifactId>
+   <version>0.0.1-SNAPSHOT</version>
+   <name>apm-app</name>
+   <description />
+   <properties>
+      <java.version>11</java.version>
+   </properties>
+   <dependencies>
+	   
+      <!--  Add GCP Trace dependencies here -->
+	   
+      <dependency>
+         <groupId>io.opencensus</groupId>
+         <artifactId>opencensus-exporter-trace-stackdriver</artifactId>
+         <version>0.28.3</version>
+         <exclusions>
+            <exclusion>
+               <groupId>io.grpc</groupId>
+               <artifactId>grpc-api</artifactId>
+            </exclusion>
+         </exclusions>
+      </dependency>
+      <dependency>
+         <groupId>io.opencensus</groupId>
+         <artifactId>opencensus-impl</artifactId>
+         <version>0.28.3</version>
+         <scope>runtime</scope>
+      </dependency>
+      <dependency>
+         <groupId>com.google.http-client</groupId>
+         <artifactId>google-http-client-jackson2</artifactId>
+         <version>1.15.0-rc</version>
+      </dependency>
+      <dependency>
+         <groupId>joda-time</groupId>
+         <artifactId>joda-time</artifactId>
+         <version>2.10.10</version>
+      </dependency>
+      <dependency>
+         <groupId>com.google.api</groupId>
+         <artifactId>gax-grpc</artifactId>
+         <version>1.64.0</version>
+      </dependency>
+      <dependency>
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-starter</artifactId>
+      </dependency>
+      <dependency>
+         <groupId>javax.xml.bind</groupId>
+         <artifactId>jaxb-api</artifactId>
+         <version>2.4.0-b180830.0359</version>
+      </dependency>
+      <dependency>
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-starter-test</artifactId>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-starter-web</artifactId>
+      </dependency>
+   </dependencies>
+   <build>
+      <plugins>
+         <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+         </plugin>
+      </plugins>
+   </build>
+</project>
