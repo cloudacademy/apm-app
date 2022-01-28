@@ -19,7 +19,7 @@
    <dependencies>
 	   
       <!--  Add GCP Trace dependencies here -->
-         
+      
       <dependency>
          <groupId>io.opencensus</groupId>
          <artifactId>opencensus-exporter-trace-stackdriver</artifactId>
