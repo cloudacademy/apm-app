@@ -1,8 +1,5 @@
 package com.app.cloudacademy;
 
-import java.lang.*;
-import java.io.*;
-import java.util.*;
 import java.io.IOException;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,17 +22,18 @@ public class AppController  {
 
   private static final Tracer tracer = Tracing.getTracer();
 
-/*  Add the Trace Exporter Code here */
+  /*  Add the Trace Exporter Code here */
+
 
   @RequestMapping("/start")
   public static String start() throws InterruptedException {
 
-    try ( /* Add the Begin Trace Scope here. Do not remove brackets */ ) {
+    try ( /* Add the Begin Trace Scope here. Do not remove parentheses */ ) {
       tracer.getCurrentSpan().addAnnotation("Thread Sleep 1000ms Created");
 
-        /* Add the Sleep Timer here */
+      /* Add the Sleep Timer here */
 
-        BigInteger fact = BigInteger.valueOf(1);
+      BigInteger fact = BigInteger.valueOf(1);
       for (int i = 1; i <= 10; i++) {
         fact = fact.multiply(BigInteger.valueOf(i));
       }
