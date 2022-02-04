@@ -42,12 +42,12 @@ public class AppController  {
 
       tracer.getCurrentSpan().addAnnotation("Finished");
 
-      } catch (Exception e) {
-        throw new RuntimeException(e);
-      }
-
-      return "API Triggered";
+    } catch (Exception e) {
+      throw new RuntimeException(e);
     }
+
+    return "API Triggered";
+  }
 
   @RequestMapping("/shut")
   public String close() {
