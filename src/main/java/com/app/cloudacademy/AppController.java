@@ -45,8 +45,8 @@ public class AppController  {
 
       tracer.getCurrentSpan().addAnnotation("Performing BigInteger Multiplications");
       
-      BigInteger fact = BigInteger.valueOf(1);
-      for (int i = 1; i <= 10; i++) {
+      BigInteger fact = BigInteger.valueOf(10000000);
+      for (int i = 1; i <= 10000000; i++) {
         fact = fact.multiply(BigInteger.valueOf(i));
       }
 
