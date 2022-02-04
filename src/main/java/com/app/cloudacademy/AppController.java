@@ -33,10 +33,14 @@ public class AppController  {
 
       /* Add the Sleep Timer here */
 
+      tracer.getCurrentSpan().addAnnotation("Performing BigInteger Multiplications");
+      
       BigInteger fact = BigInteger.valueOf(1);
       for (int i = 1; i <= 10; i++) {
         fact = fact.multiply(BigInteger.valueOf(i));
       }
+
+      tracer.getCurrentSpan().addAnnotation("Finished");
 
       } catch (Exception e) {
         throw new RuntimeException(e);
