@@ -23,15 +23,25 @@ public class AppController  {
   private static final Tracer tracer = Tracing.getTracer();
 
   /*  Add the Trace Exporter Code here */
-
+  static {
+    try {
+      System.out.println("Trace Exporter Registered");
+      StackdriverTraceExporter.createAndRegister(
+        StackdriverTraceConfiguration.builder()
+        .build());
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
+  }
 
   @RequestMapping("/start")
   public static String start() throws InterruptedException {
 
-    try ( /* Add the Begin Trace Scope here. Do not remove parentheses */ ) {
+    try (Scope scope = tracer.spanBuilder("TraceSpan").setSampler(Samplers.alwaysSample()).startScopedSpan()) {
       tracer.getCurrentSpan().addAnnotation("Thread Sleep 2000ms Created");
 
       /* Add the Sleep Timer here */
+      Thread.sleep(2000);
 
       tracer.getCurrentSpan().addAnnotation("Performing BigInteger Multiplications");
       
