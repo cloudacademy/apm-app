@@ -29,7 +29,7 @@ public class AppController  {
   public static String start() throws InterruptedException {
 
     try ( /* Add the Begin Trace Scope here. Do not remove parentheses */ ) {
-      tracer.getCurrentSpan().addAnnotation("Thread Sleep 1000ms Created");
+      tracer.getCurrentSpan().addAnnotation("Thread Sleep 2000ms Created");
 
       /* Add the Sleep Timer here */
 
